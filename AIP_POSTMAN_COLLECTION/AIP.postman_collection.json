@@ -1,0 +1,937 @@
+{
+	"info": {
+		"_postman_id": "bca1f3bf-5497-4b4c-be49-d793d168d914",
+		"name": "AIP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "Signup",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "Moin",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "Adnan",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "moin.adnan@nxb.com.pk",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "secret",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{base_url}}/signup",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"signup"
+									]
+								},
+								"description": "Method: \"POST\",\nHeaders: \"Content-Type\": \"application/json\"\nBody Params: \"first_name\", \"last_name\", \"email\", \"password\""
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "muslim.munir@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "desert",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{base_url}}/signin",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"signin"
+									]
+								},
+								"description": "Method: \"POST\",\nHeaders: \"Content-Type\": \"application/json\",\nBody Params: \"email\" & \"password\""
+							},
+							"response": []
+						},
+						{
+							"name": "Unapproved Users",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://{{base_url}}/unapproved-users",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"unapproved-users"
+									]
+								},
+								"description": "Method: \"GET\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\", (admin accessible)"
+							},
+							"response": []
+						},
+						{
+							"name": "Approve User",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "{{user_id}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{base_url}}/approve-user",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"approve-user"
+									]
+								},
+								"description": "Method: \"PATCH\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\", (admin accessible)\nBody Params: \"user_id\""
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "old_password",
+											"value": "desert",
+											"type": "text"
+										},
+										{
+											"key": "new_password",
+											"value": "desert",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{base_url}}/reset-password",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"reset-password"
+									]
+								},
+								"description": "Method: \"PATCH\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\"\nBody Params: \"old_password\", \"new_password\""
+							},
+							"response": []
+						},
+						{
+							"name": "Get User",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://{{base_url}}/user/{{user_id}}",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"{{user_id}}"
+									]
+								},
+								"description": "Method: \"GET\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\",\nURL GET Params: \"user_id\" "
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://{{base_url}}/user/{{user_id}}",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"{{user_id}}"
+									]
+								},
+								"description": "Method: \"DELETE\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\",\nURL GET Params: \"user_id\""
+							},
+							"response": []
+						},
+						{
+							"name": "Modify User",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "Moin",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "Adnan",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "moin.adnan@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "desert",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{base_url}}/user/{{user_id}}",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user",
+										"{{user_id}}"
+									]
+								},
+								"description": "Method: \"PUT\", \nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\", URL Params: \"user_id\"\nBody: \"first_name\", \"last_name\", \"email\", \"password\"\n"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "deal",
+					"item": [
+						{
+							"name": "Get Deal Statuses",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://{{base_url}}/deal-statuses",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deal-statuses"
+									]
+								},
+								"description": "Method: \"GET\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Deal Types",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://{{base_url}}/deal-types",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deal-types"
+									]
+								},
+								"description": "Method: \"GET\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Deal Categories",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://{{base_url}}/deal-categories",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deal-categories"
+									]
+								},
+								"description": "Method: \"GET\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Deal Sub Categories",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://{{base_url}}/deal-sub-categories",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deal-sub-categories"
+									]
+								},
+								"description": "Method: \"GET\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\""
+							},
+							"response": []
+						},
+						{
+							"name": "Insert Deal",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Conten",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "short_description",
+											"value": "Another deal has been done between two parties!",
+											"type": "text"
+										},
+										{
+											"key": "deal_status_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "deal_category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "deal_sub_category_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "summary",
+											"value": "Another deal is about to update",
+											"type": "text"
+										},
+										{
+											"key": "investment_amount_sought",
+											"value": "750000",
+											"type": "text"
+										},
+										{
+											"key": "minimum_investment",
+											"value": "9500",
+											"type": "text"
+										},
+										{
+											"key": "expected_close_date",
+											"value": "2019-07-20 05:37:24",
+											"type": "text"
+										},
+										{
+											"key": "actual_close_date",
+											"value": "2019-07-30 05:37:24",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{base_url}}/deal",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deal"
+									]
+								},
+								"description": "Method: \"POST\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\",\nBody Params: \"short_description\", \"deal_status_id\", \"deal_category_id\", \"deal_sub_category_id\", \"summary\", \"investment_amount_sought\", \"minimum_investment\", \"expected_close_date\", \"actual_close_date\""
+							},
+							"response": []
+						},
+						{
+							"name": "Unapproved Deals",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://{{base_url}}/unapproved-deals",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"unapproved-deals"
+									]
+								},
+								"description": "Method: \"GET\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Deals",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Conte",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://{{base_url}}/deals",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deals"
+									]
+								},
+								"description": "Method: \"GET\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\""
+							},
+							"response": []
+						},
+						{
+							"name": "Deal by Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://{{base_url}}/deal/{{deal_id}}",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deal",
+										"{{deal_id}}"
+									]
+								},
+								"description": "Method: \"GET\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\",\nURL GET Params: \"deal_id\""
+							},
+							"response": []
+						},
+						{
+							"name": "Deal by shortcode",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://{{base_url}}/deal-by-shortcode/{{shortcode}}",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deal-by-shortcode",
+										"{{shortcode}}"
+									]
+								},
+								"description": "Method: \"GET\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\",\nURL GET Params: \"shortcode\""
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Deal",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "deal_status_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "deal_category_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "deal_sub_category",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "summary",
+											"value": "Another deal is about to update",
+											"type": "text"
+										},
+										{
+											"key": "investment_amount_sought",
+											"value": "750000",
+											"type": "text"
+										},
+										{
+											"key": "minimum_investment",
+											"value": "9500",
+											"type": "text"
+										},
+										{
+											"key": "expected_close_date",
+											"value": "2019-07-20 05:37:24",
+											"type": "text"
+										},
+										{
+											"key": "actual_close_date",
+											"value": "2019-07-30 05:37:24",
+											"type": "text"
+										},
+										{
+											"key": "short_description",
+											"value": "Another deal has been done between two parties!",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{base_url}}/deal/{{deal_id}}",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deal",
+										"{{deal_id}}"
+									]
+								},
+								"description": "Method: \"PUT\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\",\nBody Params: \"short_description\", \"deal_status_id\", \"deal_category_id\", \"deal_sub_category_id\", \"summary\", \"investment_amount_sought\", \"minimum_investment\", \"expected_close_date\", \"actual_close_date\""
+							},
+							"response": []
+						},
+						{
+							"name": "Approve Deal",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "deal_id",
+											"value": "{{deal_id}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{base_url}}/approve-deal",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"approve-deal"
+									]
+								},
+								"description": "Method: \"PATCH\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\", (admin accessible)\nBody Params: \"deal_id\""
+							},
+							"response": []
+						},
+						{
+							"name": "Upload Documents",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "docs",
+											"type": "file"
+										},
+										{
+											"key": "deal_id",
+											"value": "{{deal_id}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{base_url}}/upload-documents",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"upload-documents"
+									]
+								},
+								"description": "Method: \"POST\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\",\nBody Params: \"deal_id\", \"docs\" (can be multiple)"
+							},
+							"response": []
+						},
+						{
+							"name": "Deal document by Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://{{base_url}}/deal-document-by-id/{{deal_document_id}}",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"deal-document-by-id",
+										"{{deal_document_id}}"
+									]
+								},
+								"description": "Method: \"GET\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\",\nURL GET Params: \"deal_document_id\""
+							},
+							"response": []
+						},
+						{
+							"name": "Get User Deal Categories/Sub-Categories",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://{{base_url}}/user-deal-category",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user-deal-category"
+									]
+								},
+								"description": "Method: \"GET\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\""
+							},
+							"response": []
+						},
+						{
+							"name": "Insert User Deal Category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"user_deal_category\": \"{ \\\"category\\\": 3, \\\"sub_categories\\\": [10, 11, 12] }\"\n}"
+								},
+								"url": {
+									"raw": "http://{{base_url}}/user-deal-category",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"user-deal-category"
+									]
+								},
+								"description": "Method: \"POST\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\",\nBody Params: (raw JSON => \"{ \\\"category\\\": 3, \\\"sub_categories\\\": [10, 11, 12] }\" ) "
+							},
+							"response": []
+						},
+						{
+							"name": "Remove User Deal Category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"user_deal_category\": \"{ \\\"category\\\": 3, \\\"sub_categories\\\": [10, 11, 12] }\"\n}"
+								},
+								"url": {
+									"raw": "http://{{base_url}}/remove-user-deal-category",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"remove-user-deal-category"
+									]
+								},
+								"description": "Method: \"POST\",\nHeaders: \"Content-Type\": \"application/json\", \"Authorization\": \"Bearer {token}\",\nBody Params: (raw JSON => \"{ \\\"category\\\": 3, \\\"sub_categories\\\": [10, 11, 12] }\" ) "
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}

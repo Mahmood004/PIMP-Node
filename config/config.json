@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "mahmood",
+    "password": "!@#vteams19",
+    "database": "aip",
+    "host": "clients.geodesoftware.com",
+    "port": 5817,
+    "dialect": "mysql",
+    "logging": false
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "mahmood",
+    "password": "!@#vteams19",
+    "database": "aip",
+    "host": "clients.geodesoftware.com",
+    "port": 5817,
+    "dialect": "mysql"
+  }
+}
